@@ -1,16 +1,16 @@
-#Portfólio
+# Portfólio
 
-##The ropository for my [site]:https://glicio.dev/
+## The ropository for my [site]:https://glicio.dev/
 
 Created with [create-t3-app]:https://create.t3.gg/
 
-###Tech I used:
+### Tech I used:
  -TypeScript
  -NextJS
  -tRPC for remote procedure calls
  -NextAuth (now AuthJS)
  -Prisma ORM
 
-###Infra
+### Infra
  -Hosted on [Vercel]: https://vercel.com/
  -DB on [PlanetScale]: https://planetscale.com/

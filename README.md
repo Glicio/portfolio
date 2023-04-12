@@ -14,3 +14,4 @@ Created with [create-t3-app]:https://create.t3.gg/
 ### Infra
 - Hosted on [Vercel]: https://vercel.com/
 - DB on [PlanetScale]: https://planetscale.com/
+

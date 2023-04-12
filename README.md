@@ -1,8 +1,8 @@
 # Portfólio
 
-## The ropository for my [site]:https://glicio.dev/
+## The ropository for my [Portfolio]:(https://glicio.dev/ "Meu portflio")
 
-Created with [create-t3-app]:https://create.t3.gg/
+Created with [create-t3-app]:(https://create.t3.gg/)
 
 ### Tech I used:
 - TypeScript
@@ -12,6 +12,5 @@ Created with [create-t3-app]:https://create.t3.gg/
 - Prisma ORM
 
 ### Infra
-- Hosted on [Vercel]: https://vercel.com/
-- DB on [PlanetScale]: https://planetscale.com/
-
+- Hosted on [Vercel]:(https://vercel.com/)
+- DB on [PlanetScale]: (https://planetscale.com/)

@@ -1,5 +1,6 @@
 import React from "react";
 import Chevron from "~/static/svg/chevron";
+import styles from "./section-nav.module.css";
 
 /**
  * This component is used to navigate between sections of the page
@@ -41,7 +42,7 @@ export default function SectionNav({ sections }: { sections: string[] }) {
     }, [currentSection, elements]);
 
     return (
-        <div className="fixed bottom-4 right-4 flex flex-col gap-4">
+        <div className={["fixed bottom-4 right-4 flex flex-col gap-4", styles["buttons-color"]].join(" ")} >
             <button onClick={() => {
                 setCurrentSection(0);
                 window.scrollTo(0, 0);

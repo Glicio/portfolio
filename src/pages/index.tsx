@@ -3,9 +3,10 @@ import Head from "next/head";
 import styles from "../styles/index.module.css";
 import Link from "next/link";
 import Navbar from "~/components/navigation/navbar";
-import ProjectCard from "~/components/navigation/projectcard";
+import ProjectCard from "~/components/projectcard";
 import vos from "../static/images/vivaoshow.png";
 import mspc from "../static/images/pc.png";
+import GitHubButton from "~/components/social/github-button";
 
 const Home: NextPage = () => {
     return (
@@ -41,6 +42,7 @@ const Home: NextPage = () => {
                     <p className="font-mono text-lg font-semibold">
                         A Full Stack Developer.
                     </p>
+                    <GitHubButton/>
                 </section>
                 <section
                     id="projects"

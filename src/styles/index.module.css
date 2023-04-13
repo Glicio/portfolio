@@ -1,0 +1,28 @@
+.section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - var(--nav-bar-height));
+
+}
+
+.name{
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg, white, gray, white);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-fill-color: transparent;
+    --webkit-text-fill-color: transparent;
+    animation: bg-animation 5s ease infinite;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 120%;
+    }
+}

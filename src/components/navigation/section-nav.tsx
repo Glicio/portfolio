@@ -39,7 +39,9 @@ export default function SectionNav({ sections }: { sections: string[] }) {
             top: (elements[currentSection]?.offsetTop || 0) - TOP_BAR_HEIGHT,
             behavior: "smooth",
         });
-    }, [currentSection, elements]);
+        // runs only when currentSection change. Elements is not a dependency because it doesn't change.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentSection]);
 
     return (
         <div className={["fixed bottom-4 right-4 flex flex-col gap-4", styles["buttons-color"]].join(" ")} >

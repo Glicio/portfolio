@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+*{
+    --primary-color: #2a2299;
+    --contrast-color: #919922;
+    --neutral-color: #373737;
+    --neutral-color-2: #4f4f4f;
+    --nav-bar-height: 78px;
+
+    scroll-padding-top: var(--nav-bar-height);
+    scroll-behavior: smooth;
+}

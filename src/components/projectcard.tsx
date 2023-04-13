@@ -26,9 +26,9 @@ export default function ProjectCard({
 }) {
     return (
     <Link href={link} className="bg-[var(--neutral-color)] overflow-hidden h-fit w-full rounded-md shadow shadow-black">
-        <div className="flex gap-2">
-            <div className="h-full w-[128px] bg-red-500">
-                <Image src={imgSrc} alt={imgAlt} width={128} height={256} />
+        <div className="flex flex-col md:flex-row gap-2">
+            <div className="h-[20rem] md:h-full md:w-[128px] overflow-hidden">
+                <Image src={imgSrc} alt={imgAlt} width={400} height={600} className="w-full md:w-auto" />
             </div>
             <div id="App info" className="w-full p-2">
                 <h3 className="text-2xl font-semibold">

@@ -118,8 +118,8 @@ const Home: NextPage = () => {
                             AWS S3. I used AWS EC2 for a project I did for a
                             friend, but I{"'"}m not very familiar with it yet,
                             and when I found out about Vercel I decided to use
-                            it for my projects since it has a cheap for what it
-                            offers and it{"'"}s very easy to use.
+                            it for my projects since it is cheap for what it
+                            offers and very easy to use.
                         </p>
                     </div>
                 </section>

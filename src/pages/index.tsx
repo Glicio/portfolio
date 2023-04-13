@@ -7,6 +7,8 @@ import ProjectCard from "~/components/projectcard";
 import vos from "../static/images/vivaoshow.png";
 import mspc from "../static/images/pc.png";
 import GitHubButton from "~/components/social/github-button";
+import LinkedInButton from "~/components/social/linkedin-button";
+import SectionNav from "~/components/navigation/section-nav";
 
 const Home: NextPage = () => {
     return (
@@ -24,6 +26,7 @@ const Home: NextPage = () => {
                     scrollPaddingTop: "var(--nav-bar-height)",
                 }}
             >
+            <SectionNav sections={["presentation", "projects", "about"]}/>
                 <Navbar />
                 <section
                     id="presentation"
@@ -32,17 +35,15 @@ const Home: NextPage = () => {
                 >
                     <h1 className="font-mono text-4xl font-semibold">
                         Hi, I{"'"}m{" "}
-                        <Link
-                            href={"https://github.com/Glicio"}
-                            className={styles.name}
-                        >
-                            Glicio.
-                        </Link>
+                         <span className={styles.name}>Glicio.</span>
                     </h1>
                     <p className="font-mono text-lg font-semibold">
-                        A Full Stack Developer.
+                        A Full Stack Developer
                     </p>
-                    <GitHubButton/>
+                    <div className="w-full flex gap-4 p-4 justify-center">
+                        <GitHubButton />
+                        <LinkedInButton /> 
+                    </div>
                 </section>
                 <section
                     id="projects"
@@ -52,8 +53,8 @@ const Home: NextPage = () => {
                     ].join(" ")}
                 >
                     <h2 className="mb-4 text-2xl">Projects</h2>
-                    <div className="flex flex-col gap-4 h-full w-full items-center ">
-                        <ProjectCard 
+                    <div className="flex h-full w-full flex-col items-center gap-4 ">
+                        <ProjectCard
                             title="My Setup/Meu Setup/Monte seu pc (WIP)"
                             description="A website where you can see other people's setups and also create your own."
                             more="I can't decide the Name! This is a project I'm doing because I into computers and wanted to make it easier to people that don't know much about computer parts to build their own computers without much problem."
@@ -99,16 +100,16 @@ const Home: NextPage = () => {
                             mobile and DevOps.
                         </p>
                         <p>
-                            My main language is TypeScript, I have
-                            a bit of experience with Java and I{"'"}m also trying to
+                            My main language is TypeScript, I have a bit of
+                            experience with Java and I{"'"}m also trying to
                             learn Rust. I{"'"}m currently working with React,
                             Next.js, TailwindCSS and Prisma. My goal for now is
                             to learn to use the tools that will allow me to
                             build scalable and maintainable applications in the
-                            most fast and efficient way possible. Those are the 
-                            tools I was able
-                            to learn and use in my projects, but I{"'"}m always
-                            open to learn new things and improve.
+                            most fast and efficient way possible. Those are the
+                            tools I was able to learn and use in my projects,
+                            but I{"'"}m always open to learn new things and
+                            improve.
                         </p>
                         <p>
                             I deploy my projects using Vercel, PlanetScale and

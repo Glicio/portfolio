@@ -97,14 +97,14 @@ const Home: NextPage = () => {
                             mobile and DevOps.
                         </p>
                         <p>
-                            My main languages are TypeScript, but I also have
-                            some experience with Java and I{"'"}m also trying to
+                            My main language is TypeScript, I have
+                            a bit of experience with Java and I{"'"}m also trying to
                             learn Rust. I{"'"}m currently working with React,
                             Next.js, TailwindCSS and Prisma. My goal for now is
                             to learn to use the tools that will allow me to
                             build scalable and maintainable applications in the
-                            most fast and efficient way possible. Since I don
-                            {"'"}t have much time those are the tools I was able
+                            most fast and efficient way possible. Those are the 
+                            tools I was able
                             to learn and use in my projects, but I{"'"}m always
                             open to learn new things and improve.
                         </p>

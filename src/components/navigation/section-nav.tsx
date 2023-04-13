@@ -43,7 +43,7 @@ export default function SectionNav({ sections }: { sections: string[] }) {
     return (
         <div className="fixed bottom-4 right-4 flex flex-col gap-4">
             <button onClick={() => {
-
+                setCurrentSection(0);
                 window.scrollTo(0, 0);
             }}>
                 <Chevron direction="double-up" />
@@ -69,6 +69,7 @@ export default function SectionNav({ sections }: { sections: string[] }) {
                 <Chevron direction="down" />
             </button>
             <button onClick={() => {
+                setCurrentSection(sections.length - 1);
              window.scrollTo(0, document.body.scrollHeight);
             }
             }>

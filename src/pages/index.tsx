@@ -29,7 +29,7 @@ const Home: NextPage = () => {
                     scrollPaddingTop: "var(--nav-bar-height)",
                 }}
             >
-                <SectionNav sections={["presentation", "projects", "about"]} />
+                <SectionNav sections={["presentation", "projects", "about", "contact"]} />
                 <Navbar />
                 <section
                     id="presentation"
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
                         "bg-[var(--neutral-color-2)] p-4",
                     ].join(" ")}
                 >
-                    <h2 className="mb-4 text-2xl">Projects</h2>
+                    <h2 className="mb-4 text-4xl font-bold mt-8">Projects</h2>
                     <div className="flex h-full w-full flex-col items-center gap-4 ">
                         <ProjectCard
                             title="My Setup/Meu Setup/Monte seu pc (WIP)"
@@ -81,7 +81,7 @@ const Home: NextPage = () => {
                         "bg-[var(--neutral-color)] p-4",
                     ].join(" ")}
                 >
-                    <h2 className="mb-3 text-2xl">About me.</h2>
+                    <h2 className="mb-3 text-4xl font-bold mt-8">About me.</h2>
                     <div className="flex flex-col gap-3 indent-2">
                         <p>
                             I{"'"}m a self-taught Full Stack Developer, or at
@@ -124,32 +124,37 @@ const Home: NextPage = () => {
                     </div>
                 </section>
                 <section
-                    id="about"
+                    id="contact"
                     className={[
                         styles.section,
-                        "bg-[var(--neutral-color-2)]",
+                        "bg-[var(--neutral-color-2)] p-4",
                     ].join(" ")}
                 >
-                    <h2 className="mb-3 text-2xl">Contact</h2>
+                    <h2 className="mb-3 text-4xl font-bold mt-8">Contact Info.</h2>
+                    <div className="my-auto flex flex-col items-center w-full gap-4">
                     <div className="flex flex-col gap-3 indent-2">
-                        <p>You can contact me by any of theses:</p>
+                    <p>You can contact me by any of theses:</p>
                     </div>
-                    <ContactCard title="Email" icon={<Mail />}>
-                        <Link
-                            href="mailto:glicioo@outlook.com"
-                            className="border-b border-dotted"
-                        >
-                            glicioo@outlook.com
-                        </Link>
-                    </ContactCard>
-                    <ContactCard title="Discord" icon={<DiscordMarkBlue />}>
-                        <Link
-                            href={`https://discord.com/users/330774943652511754`}
-                            className="border-b border-dotted"
-                        >
-                            Glicio#3863
-                        </Link>
-                    </ContactCard>
+                    <div className="w-full flex justify-center flex-wrap gap-4">
+
+                        <ContactCard title="Email" icon={<Mail />}>
+                            <Link
+                                href="mailto:glicioo@outlook.com"
+                                className="border-b border-dotted"
+                            >
+                                glicioo@outlook.com
+                            </Link>
+                        </ContactCard>
+                        <ContactCard title="Discord" icon={<DiscordMarkBlue />}>
+                            <Link
+                                href={`https://discord.com/users/330774943652511754`}
+                                className="border-b border-dotted"
+                            >
+                                Glicio#3863
+                            </Link>
+                        </ContactCard>
+                        </div>
+                    </div>
                 </section>
             </main>
         </>

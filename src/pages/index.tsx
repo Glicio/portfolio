@@ -9,6 +9,9 @@ import mspc from "../static/images/pc.png";
 import GitHubButton from "~/components/social/github-button";
 import LinkedInButton from "~/components/social/linkedin-button";
 import SectionNav from "~/components/navigation/section-nav";
+import ContactCard from "~/components/social/contact-card";
+import Mail from "~/static/svg/mail";
+import DiscordMarkBlue from "~/static/svg/discord-mark-blue";
 
 const Home: NextPage = () => {
     return (
@@ -26,7 +29,7 @@ const Home: NextPage = () => {
                     scrollPaddingTop: "var(--nav-bar-height)",
                 }}
             >
-            <SectionNav sections={["presentation", "projects", "about"]}/>
+                <SectionNav sections={["presentation", "projects", "about"]} />
                 <Navbar />
                 <section
                     id="presentation"
@@ -34,15 +37,14 @@ const Home: NextPage = () => {
                     style={{ justifyContent: "center" }}
                 >
                     <h1 className="font-mono text-4xl font-semibold">
-                        Hi, I{"'"}m{" "}
-                         <span className={styles.name}>Glicio.</span>
+                        Hi, I{"'"}m <span className={styles.name}>Glicio.</span>
                     </h1>
                     <p className="font-mono text-lg font-semibold">
                         A Full Stack Developer
                     </p>
-                    <div className="w-full flex gap-4 p-4 justify-center">
+                    <div className="flex w-full justify-center gap-4 p-4">
                         <GitHubButton />
-                        <LinkedInButton /> 
+                        <LinkedInButton />
                     </div>
                 </section>
                 <section
@@ -57,7 +59,7 @@ const Home: NextPage = () => {
                         <ProjectCard
                             title="My Setup/Meu Setup/Monte seu pc (WIP)"
                             description="A website where you can see other people's setups and also create your own."
-                            more="I can't decide the Name! This is a project I'm doing because I into computers and wanted to make it easier to people that don't know much about computer parts to build their own computers without much problem."
+                            more="I can't decide the Name! This is a project I'm doing because I'm into computers and wanted to make it easier to people that don't know much about computer parts to build their own computers without much problem."
                             link="https://monteseupc.glicio.dev/"
                             imgSrc={mspc.src}
                             imgAlt="A image of the My Setup website."
@@ -120,6 +122,34 @@ const Home: NextPage = () => {
                             offers and it{"'"}s very easy to use.
                         </p>
                     </div>
+                </section>
+                <section
+                    id="about"
+                    className={[
+                        styles.section,
+                        "bg-[var(--neutral-color-2)]",
+                    ].join(" ")}
+                >
+                    <h2 className="mb-3 text-2xl">Contact</h2>
+                    <div className="flex flex-col gap-3 indent-2">
+                        <p>You can contact me by any of theses:</p>
+                    </div>
+                    <ContactCard title="Email" icon={<Mail />}>
+                        <Link
+                            href="mailto:glicioo@outlook.com"
+                            className="border-b border-dotted"
+                        >
+                            glicioo@outlook.com
+                        </Link>
+                    </ContactCard>
+                    <ContactCard title="Discord" icon={<DiscordMarkBlue />}>
+                        <Link
+                            href={`https://discord.com/users/330774943652511754`}
+                            className="border-b border-dotted"
+                        >
+                            Glicio#3863
+                        </Link>
+                    </ContactCard>
                 </section>
             </main>
         </>

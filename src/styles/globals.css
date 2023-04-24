@@ -13,3 +13,36 @@
     scroll-padding-top: var(--nav-bar-height);
     scroll-behavior: smooth;
 }
+
+
+.primary-button{
+    
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+
+}
+
+.default-table{
+    border-collapse: collapse;
+    color: white;
+    width: 100%;
+    max-width: 25rem;
+}
+
+.default-table > thead > tr > th{
+    border: 1px solid var(--neutral-color-2);
+    background-color: var(--primary-color);
+    padding: .5rem;
+    text-align: center;
+}
+.default-table > tbody > tr > td{
+    border: 1px solid var(--neutral-color-2);
+    padding: .5rem;
+    text-align: center;
+}

@@ -1,5 +1,10 @@
 import React from "react";
 import styles from "./tictactoe.module.css";
+import Link from "next/link";
+import { GitHubIcon } from "~/components/social/github-button";
+import Head from "next/head";
+import Navbar from "~/components/navigation/navbar";
+import HomeIcon from "~/static/svg/home";
 type value = "X" | "O" | null;
 type GameState = [
     [value, value, value],
@@ -54,9 +59,7 @@ const text = {
     },
 };
 
-
 const Grid = ({ gameState, setCell }: Grid) => {
-
     return (
         <div className="grid h-fit w-fit grid-cols-3 grid-rows-3 gap-0">
             {gameState.map((row, i) => {
@@ -143,7 +146,7 @@ const Winner = ({
     reset: () => void;
 }) => {
     React.useEffect(() => {
-        if(typeof window === "undefined") return
+        if (typeof window === "undefined") return;
 
         setLang(window.navigator.language === "pt-BR" ? "pt" : "en");
     }, []);
@@ -151,7 +154,9 @@ const Winner = ({
     const [lang, setLang] = React.useState<"pt" | "en">("en");
     return (
         <div className="absolute left-0 top-0 flex h-screen w-screen flex-col  items-center justify-center text-4xl font-bold text-white backdrop-blur">
-            <h1>{winner === "tie" ? text[lang].tie : text[lang].winner(winner)}</h1>
+            <h1>
+                {winner === "tie" ? text[lang].tie : text[lang].winner(winner)}
+            </h1>
             <button onClick={reset} className="primary-button">
                 {text[lang].playAgain}
             </button>
@@ -162,7 +167,7 @@ const Winner = ({
 const Reset = ({ reset, close }: { reset: () => void; close: () => void }) => {
     const [lang, setLang] = React.useState<"pt" | "en">("en");
     React.useEffect(() => {
-        if(typeof window === "undefined") return
+        if (typeof window === "undefined") return;
 
         setLang(window.navigator.language === "pt-BR" ? "pt" : "en");
     }, []);
@@ -248,48 +253,76 @@ const TicTacToe = () => {
     };
 
     React.useEffect(() => {
-        if(typeof window === "undefined") return
+        if (typeof window === "undefined") return;
 
         setLang(window.navigator.language === "pt-BR" ? "pt" : "en");
     }, []);
 
     return (
-        <div className="flex min-h-screen flex-col gap-4 items-center bg-[var(--neutral-color)] p-4">
-            {winner && <Winner winner={winner} reset={resetGame} />}
-            {reset && <Reset reset={hardReset} close={() => setReset(false)} />}
-            <h1 className="text-4xl font-bold text-white">{text[lang].title}</h1>
-            <div className=" flex flex-col items-center gap-4">
-                <span className="text-white">{text[lang].turn(player)}</span>
-                <Grid gameState={gameState as GameState} setCell={setCell} />
+        <>
+            <Head>
+                <title>{text[lang].title}</title>
+            </Head>
+            <div className="flex min-h-screen flex-col items-center gap-4 bg-[var(--neutral-color)] p-4">
+                {winner && <Winner winner={winner} reset={resetGame} />}
+                {reset && (
+                    <Reset reset={hardReset} close={() => setReset(false)} />
+                )}
+                <div className="fixed bottom-4 left-4 flex gap-4">
+                    <Link
+                        href="https://github.com/Glicio/portfolio/blob/main/src/pages/games/tictactoe.tsx"
+                        className="flex items-center p-2 gap-2 rounded bg-white"
+                    >
+                        <GitHubIcon /> <span>Go to Repository</span>
+                    </Link>
+                    <Link
+                        href="/"
+                        className=" items-center gap-2 rounded bg-white p-2 flex "
+                    >
+                        <HomeIcon/> <span>Go Back</span>
+                    </Link>
+                </div>
+                <h1 className="text-4xl font-bold text-white">
+                    {text[lang].title}
+                </h1>
+                <div className=" flex flex-col items-center gap-4">
+                    <span className="text-white">
+                        {text[lang].turn(player)}
+                    </span>
+                    <Grid
+                        gameState={gameState as GameState}
+                        setCell={setCell}
+                    />
+                </div>
+                <button
+                    onClick={() => setReset(true)}
+                    className="primary-button "
+                >
+                    {text[lang].restBtnText}
+                </button>
+                <table className="default-table ">
+                    <thead>
+                        <tr>
+                            <th colSpan={2}>{text[lang].score}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>X</td>
+                            <td>{score.X}</td>
+                        </tr>
+                        <tr>
+                            <td>O</td>
+                            <td>{score.O}</td>
+                        </tr>
+                        <tr>
+                            <td>{text[lang].tie}s</td>
+                            <td>{score.tie}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <button
-                onClick={() => setReset(true)}
-                className="primary-button "
-            >
-                {text[lang].restBtnText}
-            </button>
-            <table className="default-table ">
-                <thead>
-                    <tr>
-                        <th colSpan={2}>{text[lang].score}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>X</td>
-                        <td>{score.X}</td>
-                    </tr>
-                    <tr>
-                        <td>O</td>
-                        <td>{score.O}</td>
-                    </tr>
-                    <tr>
-                        <td>{text[lang].tie}s</td>
-                        <td>{score.tie}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        </>
     );
 };
 

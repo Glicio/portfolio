@@ -3,14 +3,11 @@ import styles from "./tictactoe.module.css";
 import Link from "next/link";
 import { GitHubIcon } from "~/components/social/github-button";
 import Head from "next/head";
-import Navbar from "~/components/navigation/navbar";
 import HomeIcon from "~/static/svg/home";
 type value = "X" | "O" | null;
-type GameState = [
-    [value, value, value],
-    [value, value, value],
-    [value, value, value]
-];
+
+type row = value[];
+type GameState = row[];
 interface Grid {
     gameState: GameState;
     setCell: (cellId: [number, number]) => void;
@@ -21,6 +18,35 @@ const Cell = ({ value, onClick }: { value: value; onClick: () => void }) => {
         <button className={styles.cell} onClick={() => onClick()}>
             {value || " "}
         </button>
+    );
+};
+
+
+/**
+ * @returns a state with a random cell filled
+ * @param gameState the current game state
+ * */
+const cpuPlay = (gameState: GameState):GameState => {
+    const emptyCells: [number, number][] = [];
+    // get all empty cells
+    gameState.forEach((row, i) => {
+        row.forEach((cell, j) => {
+            if (cell === null) emptyCells.push([i, j]);
+        });
+    });
+    // if there are no empty cells, return the current state
+    if (emptyCells.length === 0) return gameState;
+    
+    // get a random empty cell
+    const randomCell = emptyCells[
+        Math.floor(Math.random() * emptyCells.length)
+    ] as [number, number];
+    
+    return gameState.map((row, i)  => 
+        row.map((cell, j) => {
+            if(i === randomCell[0] && j === randomCell[1]) return "O"
+            return cell
+        })
     );
 };
 
@@ -40,6 +66,8 @@ const text = {
             return `Vez do jogador ${player}`;
         },
         score: "Placar",
+        on: "Ligado",
+        off: "Desligado",
     },
     en: {
         title: "Tic Tac Toe",
@@ -56,6 +84,8 @@ const text = {
             return `Player ${player}'s turn`;
         },
         score: "Score",
+        on: "On",
+        off: "Off",
     },
 };
 
@@ -96,6 +126,7 @@ const checkRows = (gameState: GameState) => {
  * */
 const checkColumns = (gameState: GameState) => {
     for (let i = 0; i < 3; i++) {
+        if(!gameState[0] || !gameState[1] || !gameState[2]) return
         if (
             [gameState[0][i], gameState[1][i], gameState[2][i]].every(
                 (cell) => cell === "X"
@@ -117,6 +148,7 @@ const checkColumns = (gameState: GameState) => {
  * @returns a winner if there is one, or undefined
  * */
 const checkDiagonals = (gameState: GameState) => {
+        if(!gameState[0] || !gameState[1] || !gameState[2]) return
     if (
         [gameState[0][0], gameState[1][1], gameState[2][2]].every(
             (cell) => cell === "X"
@@ -216,6 +248,8 @@ const TicTacToe = () => {
     const [player, setPlayer] = React.useState<"X" | "O">("X");
     const [winner, setWinner] = React.useState<"X" | "O" | "tie" | undefined>();
     const [lang, setLang] = React.useState<"pt" | "en">("en");
+    const [reset, setReset] = React.useState<boolean>(false);
+    const [cpuOn, setCpuOn] = React.useState<boolean>(false);
     const [score, setScore] = React.useState<{
         X: number;
         O: number;
@@ -225,7 +259,7 @@ const TicTacToe = () => {
         O: 0,
         tie: 0,
     });
-    const [reset, setReset] = React.useState<boolean>(false);
+
     const resetGame = () => {
         setReset(false);
         setGameState([
@@ -247,12 +281,18 @@ const TicTacToe = () => {
         const winner = checkWinner(gameState);
         if (winner) {
             setWinner(winner);
-            setScore((old) => {
+            return setScore((old) => {
                 return {
                     ...old,
                     [winner]: old[winner] + 1,
                 };
             });
+        }
+        if(player === "O" && cpuOn){
+            return setGameState((old) => {
+                setPlayer("X")
+                return cpuPlay(old)
+            })
         }
     }, [gameState]);
 
@@ -291,15 +331,15 @@ const TicTacToe = () => {
                 <div className="fixed bottom-4 left-4 flex gap-4">
                     <Link
                         href="https://github.com/Glicio/portfolio/blob/main/src/pages/games/tictactoe.tsx"
-                        className="flex items-center p-2 gap-2 rounded bg-white"
+                        className="flex items-center gap-2 rounded bg-white p-2"
                     >
                         <GitHubIcon /> <span>Go to Repository</span>
                     </Link>
                     <Link
                         href="/"
-                        className=" items-center gap-2 rounded bg-white p-2 flex "
+                        className=" flex items-center gap-2 rounded bg-white p-2 "
                     >
-                        <HomeIcon/> <span>Go Back</span>
+                        <HomeIcon /> <span>Go Back</span>
                     </Link>
                 </div>
                 <h1 className="text-4xl font-bold text-white">
@@ -310,16 +350,21 @@ const TicTacToe = () => {
                         {text[lang].turn(player)}
                     </span>
                     <Grid
-                        gameState={gameState as GameState}
+                        gameState={gameState}
                         setCell={setCell}
                     />
                 </div>
-                <button
-                    onClick={() => setReset(true)}
-                    className="primary-button "
-                >
-                    {text[lang].restBtnText}
-                </button>
+                <div className="flex gap-4">
+                    <button
+                        onClick={() => setReset(true)}
+                        className="primary-button "
+                    >
+                        {text[lang].restBtnText}
+                    </button>
+                    <button className="primary-button" onClick={() => {setCpuOn(old => !old)}}>
+                        CPU: {cpuOn ? text[lang].on : text[lang].off}
+                    </button>
+                </div>
                 <table className="default-table ">
                     <thead>
                         <tr>

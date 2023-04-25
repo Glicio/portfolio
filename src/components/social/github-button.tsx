@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Icon = () => {
+export const GitHubIcon = () => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ export default function GitHubButton() {
             href="https://github.com/Glicio"
             className="h-[3rem] w-[8rem] bg-white text-black flex items-center justify-center rounded-md shadow-md shadow-black gap-2"
         >
-        <Icon/>
+        <GitHubIcon/>
             GitHub
         </Link>
     );

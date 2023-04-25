@@ -77,6 +77,11 @@ const Grid = ({ gameState, setCell }: Grid) => {
     );
 };
 
+/**
+ * checks the rows for a winner
+ * @param gameState the current game state
+ * @returns a winner if there is one, or undefined
+ * */
 const checkRows = (gameState: GameState) => {
     for (const row of gameState) {
         if (row.every((cell) => cell === "X")) return "X";
@@ -84,6 +89,11 @@ const checkRows = (gameState: GameState) => {
     }
 };
 
+/**
+ * checks the columns for a winner
+ * @param gameState the current game state
+ * @returns a winner if there is one, or undefined
+ * */
 const checkColumns = (gameState: GameState) => {
     for (let i = 0; i < 3; i++) {
         if (
@@ -101,6 +111,11 @@ const checkColumns = (gameState: GameState) => {
     }
 };
 
+/**
+ * checks the diagonals for a winner
+ * @param gameState the current game state
+ * @returns a winner if there is one, or undefined
+ * */
 const checkDiagonals = (gameState: GameState) => {
     if (
         [gameState[0][0], gameState[1][1], gameState[2][2]].every(
@@ -127,7 +142,12 @@ const checkDiagonals = (gameState: GameState) => {
     )
         return "O";
 };
-
+/**
+ * checks the game state for a winner
+ * uses checkRows, checkColumns and checkDiagonals functions
+ * @param gameState the current game state
+ * @returns a winner if there is one, or undefined
+ * */
 const checkWinner = (gameState: GameState) => {
     const winner =
         checkRows(gameState) ||

@@ -12,6 +12,7 @@ import SectionNav from "~/components/navigation/section-nav";
 import ContactCard from "~/components/social/contact-card";
 import Mail from "~/static/svg/mail";
 import DiscordMarkBlue from "~/static/svg/discord-mark-blue";
+import tictactoe from "../static/images/tictactoe.jpg";
 
 const Home: NextPage = () => {
     return (
@@ -56,6 +57,14 @@ const Home: NextPage = () => {
                 >
                     <h2 className="mb-4 text-4xl font-bold mt-8">Projects</h2>
                     <div className="flex h-full w-full flex-col items-center gap-4 ">
+                        <ProjectCard
+                            title="Tic-Tac-Toe"
+                            description="A simple Tic-Tac-Toe game"
+                            link="/games/tictactoe"
+                            imgSrc={tictactoe.src}
+                            more="I did this because I was bored."
+                            imgAlt="A image of the Tic-Tac-Toe game."
+                        />
                         <ProjectCard
                             title="My Setup/Meu Setup/Monte seu pc (WIP)"
                             description="A website where you can see other people's setups and also create your own."

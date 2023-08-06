@@ -10,7 +10,6 @@
     --neutral-color-2: #4f4f4f;
     --nav-bar-height: 78px;
 
-    scroll-padding-top: var(--nav-bar-height);
     scroll-behavior: smooth;
 }
 

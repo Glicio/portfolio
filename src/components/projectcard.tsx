@@ -34,9 +34,9 @@ export default function ProjectCard({
                 <h3 className="text-2xl font-semibold">
                     {title}
                 </h3>
-                <p className="text-lg">{description}</p>
+                <p className="text-lg font-semibold">{description}</p>
                 
-                <span className="">{more}</span>
+                <span className="text-sm">{more}</span>
             </div>
         </div>
     </Link>

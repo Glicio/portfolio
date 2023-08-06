@@ -22,7 +22,7 @@ export default function ProjectCard({
     imgSrc: string;
     imgAlt: string;
     link: string;
-    more: string;
+    more: string | React.ReactNode;
 }) {
     return (
     <Link href={link} className="bg-[var(--neutral-color)] overflow-hidden h-fit w-full rounded-md shadow shadow-black">

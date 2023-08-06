@@ -4,14 +4,14 @@ import styles from "../styles/index.module.css";
 import Link from "next/link";
 import Navbar from "~/components/navigation/navbar";
 import ProjectCard from "~/components/projectcard";
-import vos from "../static/images/vivaoshow.png";
-import mspc from "../static/images/pc.png";
 import GitHubButton from "~/components/social/github-button";
 import LinkedInButton from "~/components/social/linkedin-button";
 import SectionNav from "~/components/navigation/section-nav";
 import ContactCard from "~/components/social/contact-card";
 import Mail from "~/static/svg/mail";
 import DiscordMarkBlue from "~/static/svg/discord-mark-blue";
+import vos from "../static/images/vivaoshow.png";
+import mspc from "../static/images/pc.png";
 import tictactoe from "../static/images/tictactoe.jpg";
 
 const Home: NextPage = () => {

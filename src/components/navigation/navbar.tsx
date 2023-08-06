@@ -13,8 +13,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="h-[var(--nav-bar-height)]"></div>
-            <nav className="fixed top-0 flex w-screen flex-wrap items-center justify-between bg-[var(--primary-color)] p-6">
+            <nav className="sticky top-0 flex flex-wrap items-center justify-between bg-[var(--primary-color)] px-6 py-2">
                 <div className="mr-6 flex flex-shrink-0 items-center text-white">
                     <span className="text-xl font-semibold tracking-tight">
                         Glicio

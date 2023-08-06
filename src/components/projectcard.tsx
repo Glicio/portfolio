@@ -35,7 +35,8 @@ export default function ProjectCard({
                     {title}
                 </h3>
                 <p className="text-lg">{description}</p>
-                <p className="">{more}</p>
+                
+                <span className="">{more}</span>
             </div>
         </div>
     </Link>

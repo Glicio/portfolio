@@ -62,7 +62,7 @@ export default function Page() {
                     Hi, I{"'"}m <span className={""}>Glicio.</span>
                 </h1>
                 <p className="font-mono text-lg font-semibold">
-                    Aspiring software developer.
+                    Software Developer.
                 </p>
                 <div className="flex w-full justify-center gap-4 p-4">
                     <GitHubButton />
